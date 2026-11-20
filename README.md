@@ -2,7 +2,7 @@
 
 ## Introduction
 
-QuizCraft explores how to generate practice questions grounded in a Word document and a topic.
+With QuizCraft, I explored how to build a practice quiz around a specific passage in someone’s study notes. You choose a topic and upload a Word document. The prototype finds relevant passages and prepares a prompt for the model.
 
 ## Tech stack
 
@@ -23,7 +23,7 @@ React and Expo provide web and mobile clients. Express and MongoDB handle accoun
 
 ## How it can be improved
 
-Give each document its own retrieval index, raise the generation budget, and test with two documents on different subjects. Check that each generated question can be traced to a passage in the intended document or to an identified fallback source.
+I’d give each document its own index and increase the output limit so the model can finish a question. My first test would use two unrelated documents and trace each question back to the passage that prompted it.
 
 ### Current behavior
 
