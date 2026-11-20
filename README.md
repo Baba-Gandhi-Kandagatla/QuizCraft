@@ -2,6 +2,8 @@
 
 QuizCraft is a retrieval-based quiz prototype. Given a Word document (`.docx`) and a topic, it finds relevant passages and uses them as context for a question-generation model. The interface offers multiple-choice, true/false, short-answer and fill-in-the-blank formats.
 
+![QuizCraft form with a topic, Word document upload, question count and question type.](docs/images/question-form.png)
+
 ## How retrieval works
 
 1. The FastAPI handler reads the document paragraphs with python-docx and groups the text into chunks.
@@ -25,3 +27,7 @@ The Python service needs a CUDA-capable environment for its configured model pla
 - **Inputs.** Supply both the topic and a Word document. The API requires both even though the web form labels the topic optional.
 - **Output length.** The model configuration sets `max_new_tokens` to 1. Increase it in `Flask/app.py` to generate a complete question set.
 - **Document scope.** The FAISS index persists across requests within one process. Use a single local session and sample documents when exploring retrieval.
+
+## Next experiment
+
+Give each document its own retrieval index, raise the generation budget, and test with two documents on different subjects. Check that each generated question can be traced to a passage in the intended document or to an identified fallback source.
